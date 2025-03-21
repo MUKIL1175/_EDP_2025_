@@ -1,0 +1,3 @@
+buzzer -> d7 (gpio13)
+ultrasonic -> trig -> d1(gpio 5)
+	   -> echo -> d2(gpio 4)
