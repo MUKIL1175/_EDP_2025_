@@ -1,0 +1,2 @@
+MQ-3 Sensor			=	VCC → 3.3V, GND → GND, A0 → GP26 (ADC0)
+OLED (SSD1306, I2C) =	VCC → 3.3V, GND → GND, SCL → GP17, SDA → GP16
