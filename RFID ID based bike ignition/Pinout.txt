@@ -1,0 +1,6 @@
+# Safe GPIOs for ESP8266
+SCK_PIN = 14   # D5
+MOSI_PIN = 13  # D7
+MISO_PIN = 12  # D6
+RST_PIN = 5    # D1
+CS_PIN = 4     # D2 (SDA)
