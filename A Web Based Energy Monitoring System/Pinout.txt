@@ -3,6 +3,11 @@ Esp8266:
 RX_PIN 12  GPIO12 = D6
 TX_PIN 14  GPIO14 = D5
 
+Esp32:
+
+RX_PIN   GPIO16 
+TX_PIN   GPIO17 
+
 
 Wifi Credential ---> ("Pzem_004T", "1234567890")
 Change your mobile hotspot credentials to above credentials
