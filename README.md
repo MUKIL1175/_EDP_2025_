@@ -8,8 +8,6 @@ Welcome to my **Project Showcase Repository**! I am a **college student** passio
 This repository includes:
 - **Embedded Systems Projects** (ESP32, Raspberry Pi, Microcontrollers)
 - **IoT-Based Solutions**
-- **PCB Designs (KiCad)**
-- **AI/ML Applications**
 - **Electronics & Circuit Design**
 
 ## 🤝 Support & Collaboration
