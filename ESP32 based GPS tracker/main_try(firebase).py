@@ -5,11 +5,11 @@ from machine import UART
 import urequests
 
 # Wi-Fi credentials
-ssid = "gps_pump"
+ssid = "gps_esp32"
 password = "1234567890"
 
 # Firebase Config
-FIREBASE_URL = "https://gpspump-default-rtdb.firebaseio.com"
+FIREBASE_URL = "https://gpsesp32-default-rtdb.firebaseio.com"
 FIREBASE_PATH = "/esp32/gps_ip.json"
 
 # Connect to Wi-Fi
@@ -26,11 +26,11 @@ def connect_wifi(ssid, password):
 
     if wlan.isconnected():
         ip = wlan.ifconfig()[0]
-        print("✅ Connected!")
+        print("Connected!")
         print("IP Address:", ip)
         return ip
     else:
-        print("❌ Wi-Fi connection failed.")
+        print("Wi-Fi connection failed.")
         return None
 
 # Send IP to Firebase
@@ -39,10 +39,10 @@ def send_ip_to_firebase(ip):
         url = FIREBASE_URL + FIREBASE_PATH
         data = { "ip": ip }
         response = urequests.put(url, json=data)
-        print("📤 IP sent to Firebase:", response.text)
+        print("IP sent to Firebase:", response.text)
         response.close()
     except Exception as e:
-        print("❌ Failed to send IP to Firebase:", e)
+        print("Failed to send IP to Firebase:", e)
 
 # Parse GPRMC NMEA sentence
 def parse_gprmc(sentence):
@@ -91,12 +91,12 @@ def start_web_server(ip, uart):
     s = socket.socket()
     s.bind(addr)
     s.listen(1)
-    print("🌐 Web server running at http://{}/".format(ip))
+    print(" Web server running at http://{}/".format(ip))
 
     try:
         while True:
             cl, addr = s.accept()
-            print("📡 Client connected:", addr)
+            print("Client connected:", addr)
             request = cl.recv(1024)
 
             coords = get_gps_coords(uart)
@@ -138,7 +138,7 @@ def start_web_server(ip, uart):
             cl.sendall(html)
             cl.close()
     except KeyboardInterrupt:
-        print("🛑 Server stopped by user.")
+        print("Server stopped by user.")
     finally:
         s.close()
 
@@ -150,4 +150,4 @@ if ip:
     send_ip_to_firebase(ip)
     start_web_server(ip, gps_uart)
 else:
-    print("⚠️ Cannot start web server without Wi-Fi.")
+    print(" Cannot start web server without Wi-Fi.")
