@@ -1,0 +1,5 @@
+ssid = "gps_pump" 
+password = "1234567890"
+
+tx = 17, rx = 16
+tx = tx2, rx = rx2
