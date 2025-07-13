@@ -1,4 +1,4 @@
-ssid = "gps_pump" 
+ssid = "gps_esp32" 
 password = "1234567890"
 
 tx = 17, rx = 16
